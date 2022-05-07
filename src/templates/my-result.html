@@ -1,0 +1,267 @@
+<!-- /templates/my-form.html -->
+
+<html>
+    <head>
+        <title>E.Demand Visualization Tool</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    </head>
+
+    <!-- Add some style to table (OPTIONAL) -->
+    <style type="text/css">
+    	h3 {
+			font-family: 'Secular One', sans-serif;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-bottom: 5px;
+		}
+		td.sidenav {
+		height : 100%;
+		width : 25%;
+		min-width:350px;
+		z-index : 1;
+		background-color :#ddf;
+		overflow-x: hidden;
+		padding-top: 20px;	
+		vertical-align: text-top;
+		}
+		
+		td.mainBar{
+		height : 100%;
+		width : 200%;
+		background-color :#faa;
+		background-image: url("https://townsquare.media/site/385/files/2020/07/TCNJ.jpg?w=980&q=75");
+		background-repeat: no-repeat;
+ 		background-position: center;
+		background-size: cover;
+        vertical-align: top;
+		}
+
+        td.infoArea{
+        background-color: rgba(255, 255, 255, 0.5);
+        background-image :none;
+		height : 60%;
+		width : 100%;
+		min-height : 40%;
+        }        
+
+        td.entries{
+            
+        }
+		table.overall{
+		height : 100%;
+		width : 100%;
+		}
+		.searchBar {
+		z-index : 1;
+		background-color :#eef;
+		overflow-x: hidden;
+		padding: 5px;	
+		}
+
+        form {
+            margin: 1%;
+        }
+
+        div {
+            margin: 1% 0;
+        }
+
+        th:tr{
+            color: blue;
+        }
+        tr:nth-of-type(2n){
+            border: 1px solid black;
+            background-color: rgba(150, 150, 150, 0.5);
+        }
+
+        td{
+        }
+    </style>
+
+    <body>
+
+        <table class = "overall">
+			<tr>
+				<td class ="sidenav">
+
+					<div class ="searchBar">
+						<h3>VIEW BY SPECIFIC MONTH</h3>		
+						<form action='/metrics-month' method = "POST">
+							<input type = "radio" id = "el_energy" name = "energy" value = "el_energy">
+							<label for = "el_energy">Electric</label>
+							<input type = "radio" id = "ng_energy" name = "energy" value = "ng_energy">
+							<label for = "ng_energy">Natural Gas</label>
+							
+							</br>
+							
+							<label>Month</label>
+							<select name = 'month' id = 'month'>
+								<option value = '1'>Jan</option>
+								<option value = '2'>Feb</option>
+								<option value = '3'>Mar</option>
+								<option value = '4'>Apr</option>
+								<option value = '5'>May</option>
+								<option value = '6'>Jun</option>
+								<option value = '7'>Jul</option>
+								<option value = '8'>Aug</option>
+								<option value = '9'>Sep</option>
+								<option value = '10'>Oct</option>
+								<option value = '11'>Nov</option>
+								<option value = '12'>Dec</option>
+							</select>
+							
+							</br>
+				
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+					<div class ="searchBar">
+						<h3>VIEW BY SPECIFIC YEAR</h3>		
+						<form action='/metrics-year' method = "POST">
+							<input type = "radio" id = "el_energy" name = "energy" value = "el_energy">
+							<label for = "el_energy">Electric</label>
+							<input type = "radio" id = "ng_energy" name = "energy" value = "ng_energy">
+							<label for = "ng_energy">Natural Gas</label>
+							
+							</br>
+							
+							<label>Year</label>
+							<select name = 'year' id = 'year'>
+								<option value = '2009'>2009</option>
+								<option value = '2010'>2010</option>
+								<option value = '2011'>2011</option>
+								<option value = '2012'>2012</option>
+								<option value = '2013'>2013</option>
+								<option value = '2014'>2014</option>
+								<option value = '2015'>2015</option>
+								<option value = '2016'>2016</option>
+								<option value = '2017'>2017</option>
+								<option value = '2018'>2018</option>
+								<option value = '2019'>2019</option>
+								<option value = '2020'>2020</option>
+								<option value = '2021'>2021</option>
+							</select>
+							
+							</br>
+				
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+					<div class ="searchBar">
+						<h3>VIEW BY YEAR & BUILDING TYPE </h3>
+						<form action='/view-building-type-year' method = "POST">
+							<input type = "radio" id = "el_energy" name = "energy" value = "el_energy">
+							<label for = "el_energy">Electric</label>
+							<input type = "radio" id = "ng_energy" name = "energy" value = "ng_energy">
+							<label for = "ng_energy">Natural Gas</label>
+							
+							</br>
+				
+							<label>Building Type</label>
+							<select name = 'b_type' id = 'b_type'>
+								<option value = 'academic'>Academic</option>
+								<option value = 'admin_services'>Admin Services</option>
+								<option value = 'athletic'>Athletic</option>
+								<option value = 'residential_hall'>Residential Halls</option>
+								<option value = 'student_services'>Student Services</option>
+								<option value = 'other'>Other</option>
+							</select>
+							
+							</br>
+							
+							<label>Year</label>
+							<select name = 'year' id = 'year'>
+								<option value = '2009'>2009</option>
+								<option value = '2010'>2010</option>
+								<option value = '2011'>2011</option>
+								<option value = '2012'>2012</option>
+								<option value = '2013'>2013</option>
+								<option value = '2014'>2014</option>
+								<option value = '2015'>2015</option>
+								<option value = '2016'>2016</option>
+								<option value = '2017'>2017</option>
+								<option value = '2018'>2018</option>
+								<option value = '2019'>2019</option>
+								<option value = '2020'>2020</option>
+								<option value = '2021'>2021</option>
+							</select>
+							
+							</br>
+							<input type="submit" value="Submit">
+						</form>
+					</div>
+					<div class ="searchBar">
+						<h3>VIEW BY MONTH & BUILDING TYPE </h3>
+						<form action='/view-building-type-month' method = "POST">
+							<input type = "radio" id = "el_energy" name = "energy" value = "el_energy">
+							<label for = "el_energy">Electric</label>
+							<input type = "radio" id = "ng_energy" name = "energy" value = "ng_energy">
+							<label for = "ng_energy">Natural Gas</label>
+							
+							</br>
+				
+							<label>Building Type</label>
+							<select name = 'b_type' id = 'b_type'>
+								<option value = 'academic'>Academic</option>
+								<option value = 'admin_services'>Admin Services</option>
+								<option value = 'athletic'>Athletic</option>
+								<option value = 'residential_hall'>Residential Halls</option>
+								<option value = 'student_services'>Student Services</option>
+								<option value = 'other'>Other</option>
+							</select>
+							
+							</br>
+							
+							<label>Month</label>
+							<select name = 'month' id = 'month'>
+								<option value = '1'>Jan</option>
+								<option value = '2'>Feb</option>
+								<option value = '3'>Mar</option>
+								<option value = '4'>Apr</option>
+								<option value = '5'>May</option>
+								<option value = '6'>Jun</option>
+								<option value = '7'>Jul</option>
+								<option value = '8'>Aug</option>
+								<option value = '9'>Sep</option>
+								<option value = '10'>Oct</option>
+								<option value = '11'>Nov</option>
+								<option value = '12'>Dec</option>
+							</select>
+							
+							</br>
+							<input type="submit" value="Submit">
+							</form>
+						</div>
+				</td>
+
+				<td class ="mainBar">
+                    <table>
+                        <tr>
+                            <td class = "infoArea">                                
+								<img src =  "{{energy_graph_url}}" alt="WHERE IS THE GRAPH!?">
+								<img src =  "{{cost_graph_url}}" alt="WHERE IS THE GRAPH!?"> 
+                            
+							</td>
+                        </tr>
+		                    <tr>
+		                        <td class = "entries">
+		                            <table>
+		                                <!-- nested for loops in jinja template -->
+		                                {%for row in rows%}
+		                                    <tr>
+		                                    {%for col in row%}
+		                                        <td>{{col}}</td>
+		                                    {%endfor%}
+		                                    </tr>
+		                                {%endfor%}
+		                            </table>
+		                        </td>
+		                    </tr>
+                    </table>
+				</td>
+			</tr>
+		</table>
+    </body>
+</html>
